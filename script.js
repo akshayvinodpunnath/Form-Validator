@@ -18,6 +18,7 @@ function showSuccess(input) {
     formControl.className = 'form-control success';
 }
 
+//Check Email Entered
 function checkEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(input.value)) {
@@ -27,6 +28,7 @@ function checkEmail(input) {
     }
 }
 
+//Check Required Fields
 function checkRequiredField(inputArray) {
     inputArray.forEach(function(input) {
         if (input.value.trim() === '') {
@@ -37,6 +39,7 @@ function checkRequiredField(inputArray) {
     })
 }
 
+//Check Length of input field
 function checkLength(input, min, max) {
     if(input.value.length < min) {
         showError(input, `${getFieldName(input)} must be at least ${min} characters`);
@@ -45,16 +48,19 @@ function checkLength(input, min, max) {
     }
 }
 
+//Return input.id in with first character in uppercase
 function getFieldName(input) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
+//Validate password
 function checkPasswordsMatch(inputPassword, confirmPassword) {
     if (inputPassword.value !== confirmPassword.value) {
         showError(confirmPassword, `Passwords do not match`)
     }
 }
 
+//Form addEventListener on submit
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     checkRequiredField([username, email, password, password2]);
