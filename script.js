@@ -56,7 +56,7 @@ function getFieldName(input) {
 //Validate password
 function checkPasswordsMatch(inputPassword, confirmPassword) {
     if (inputPassword.value !== confirmPassword.value) {
-        showError(confirmPassword, `Passwords do not match`)
+        showError(confirmPassword, `Passwords not matching`)
     }
 }
 
